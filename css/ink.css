@@ -1,0 +1,29 @@
+#project-title {
+	position:absolute;
+	margin:0 auto;
+	width:100%;
+	height:100%;
+	background: url(../images/projects/inking_octopus/aquarium.jpg) no-repeat scroll;
+	background-size: cover;
+}
+
+#project-desc {
+	margin:0 auto;
+	font-size:20pt;
+}
+
+#desc-box {
+	margin:0 auto;
+	padding: 0 10px;
+	width:40%;
+	margin-left:6%;
+	background:rgba(255, 255, 255, .8);
+	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.46);
+}
+
+.title {
+	color:#fff;
+	font-size: 48pt;
+	font-family: "Oswald";
+	text-shadow: 2px 2px 5px #000000;
+}

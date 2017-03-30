@@ -1,0 +1,739 @@
+@import url('reset.css');
+
+
+/* ===== Custom Preloader ===== */
+
+#loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    background: #FFFFFF;
+}
+
+#loader {
+    display: block;
+    position: relative;
+    left: 50%;
+    top: 41%;
+    width: 150px;
+    height: 146px;
+    margin: -76px 0 0 -78px;
+
+    border: 3px solid transparent;
+    border-top-color: black;
+    border-radius: 50%;
+    z-index: 1500;
+
+    -webkit-animation: spin 1.5s linear infinite;
+    animation: spin 1.5s linear infinite;
+}
+
+.loaded #loader {
+    opacity: 0;
+    -webkit-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}
+
+.loaded #loader-wrapper {
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: all 0.5s 0.3s ease-out;
+    transition: all 0.5s 0.3s ease-out;
+}
+
+@-webkit-keyframes spin {
+    0%   {
+        -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+@keyframes spin {
+    0%   {
+        -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+/* ===== General ===== */
+
+body{
+    background: #FFF;
+    color: #101010;
+    font: 13px "Open Sans", Arial, sans-serif;
+    font-weight: 400;
+}
+
+section {
+    overflow:hidden;
+}
+
+h1,h2,h3,h6 {
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.17em;
+    margin: 0 0 10px;
+}
+
+h1 {
+    font-size: 3em;
+    text-transform: uppercase;
+}
+
+h2 {
+    font-size: 1.5em;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+h3 {
+    font-size: 1em;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+h6 {
+    font-size: .8em;
+    font-style: italic;
+    margin: 0;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #da4453;
+}
+
+.cl-effect-21 a {
+    color: black;
+    text-shadow: none;
+    -webkit-transition: color 0.3s;
+    -moz-transition: color 0.3s;
+    transition: color 0.3s;
+    cursor: pointer;
+}
+
+.cl-effect-21 a::before,
+.cl-effect-21 a::after {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #DE8642;
+    content: '';
+    opacity: 0;
+    -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+    -moz-transition: opacity 0.3s, -moz-transform 0.3s;
+    transition: opacity 0.3s, transform 0.3s;
+    -webkit-transform: translateY(-10px);
+    -moz-transform: translateY(-10px);
+    transform: translateY(-10px);
+}
+
+.cl-effect-21 a::before {
+    top: 0;
+    -webkit-transform: translateY(-10px);
+    -moz-transform: translateY(-10px);
+    transform: translateY(-10px);
+}
+
+.cl-effect-21 a::after {
+    bottom: 0;
+    -webkit-transform: translateY(10px);
+    -moz-transform: translateY(10px);
+    transform: translateY(10px);
+}
+
+.cl-effect-21 a:hover,
+.cl-effect-21 a:focus {
+    color: #DE8642;
+}
+
+.cl-effect-21 a:hover::before,
+.cl-effect-21 a:focus::before,
+.cl-effect-21 a:hover::after,
+.cl-effect-21 a:focus::after {
+    opacity: 1;
+    -webkit-transform: translateY(0px);
+    -moz-transform: translateY(0px);
+    transform: translateY(0px);
+}
+
+
+/* ===== Buttons ===== */
+
+.button {
+    display: inline-block;
+    padding: 20px 55px;
+    font-size: 1em;
+    text-transform: uppercase;
+    letter-spacing: 0.20em;
+    font-weight: 400;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+}
+
+/* ===== Header ===== */
+
+header {
+    position:fixed;
+    width: 100%;
+    background-color:rgba(255,255,255,.9);
+    border-bottom: thin solid black;
+    padding: 30px 0;
+    z-index: 999;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.shrink {
+    padding: 3px 0;
+}
+
+header .logo {
+    margin-left: 25%;
+    float:left;
+}
+
+#fulllogo {
+    font-family: Oswald;
+    letter-spacing: .1em;
+    line-height: 30px;
+    margin: 0 auto;
+    padding: 1px 4px 1px 6px;
+    border: 1px solid black;
+}
+
+/* ===== Navigation ===== */
+
+nav {
+    display: table-cell;
+    position: relative;
+    width: 100%;
+    float: right;
+}
+
+nav ul {
+    display: none;
+    text-align: center;
+    width: 100%;
+}
+
+nav li {
+    line-height: 30px;
+}
+
+nav a {
+    position: relative;
+    display: inline-block;
+    outline: none;
+    color: #000;
+    text-decoration: none;
+    text-transform: lowercase;
+    text-shadow: 0 0 1px rgba(255,255,255,0.3);
+}
+
+nav a:hover,
+nav a:focus {
+    outline: none;
+}
+
+nav .menu {
+    float: right;
+    line-height: 30px;
+}
+
+#hamburger {
+    width: 20px;
+    height: 10px;
+    position: fixed;
+    right: 25%;
+    margin: 10px auto;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: .5s ease-in-out;
+    -moz-transition: .5s ease-in-out;
+    -o-transition: .5s ease-in-out;
+    transition: .5s ease-in-out;
+    cursor: pointer;
+}
+
+#hamburger span {
+    display: block;
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    background: #000000;
+    border-radius:2px;
+    opacity: 1;
+    left: 0;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: .25s ease-in-out;
+    -moz-transition: .25s ease-in-out;
+    -o-transition: .25s ease-in-out;
+    transition: .25s ease-in-out;
+}
+
+#hamburger {
+}
+
+#hamburger span:nth-child(1) {
+  top: 0px;
+  -webkit-transform-origin: left center;
+  -moz-transform-origin: left center;
+  -o-transform-origin: left center;
+  transform-origin: left center;
+}
+
+
+#hamburger span:nth-child(2) {
+  top: 10px;
+  -webkit-transform-origin: left center;
+  -moz-transform-origin: left center;
+  -o-transform-origin: left center;
+  transform-origin: left center;
+}
+
+#hamburger.open span:nth-child(1) {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  top: -2px;
+  left: 0px;
+}
+
+#hamburger.open span:nth-child(2) {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  top: 12px;
+  left: 0px;
+}
+
+/* ===== Layout ===== */
+
+.title {
+    margin-bottom: 30px;
+    padding-top: 80px;
+    padding-bottom: 30px;
+    text-align: center;
+}
+
+.border {
+    display: block;
+    width: 80px;
+    height: 2px;
+    background: #999999;
+    margin: 0 auto;
+}
+
+/* ===== Home ===== */
+
+#home {
+    padding:420px 0;
+    background: url(../images/desk.jpg) no-repeat scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-position: bottom;
+    position: relative;
+    text-align: center;
+}
+
+
+#softwaredev {
+    width:80%;
+    margin:0 auto;
+    margin-top: 15px;
+    background: none;
+    letter-spacing: .5em;
+    background: -webkit-linear-gradient(left,rgba(255,255,255,0),rgba(255,255,255,.7),rgba(255,255,255,0));
+    background: -o-linear-gradient(right,rgba(255,255,255,0),rgba(255,255,255,.7),rgba(255,255,255,0));
+    background: -moz-linear-gradient(right,rgba(255,255,255,0),rgba(255,255,255,.7),rgba(255,255,255,0));
+    background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,.7),rgba(255,255,255,0));
+}
+
+#uidesigner {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 10px;
+    background: none;
+    letter-spacing: .5em;
+    background: -webkit-linear-gradient(left,rgba(255,255,255,0),rgba(255,255,255,.7),rgba(255,255,255,0));
+    background: -o-linear-gradient(right,rgba(255,255,255,0),rgba(255,255,255,.7),rgba(255,255,255,0));
+    background: -moz-linear-gradient(right,rgba(255,255,255,0),rgba(255,255,255,.7),rgba(255,255,255,0));
+    background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,.7),rgba(255,255,255,0));
+}
+
+/* ===== Work Navigation ===== */
+
+.work-nav {
+    display: table;
+    top:0;
+    width:100%;
+    background-color:rgba(255,255,255,.9);
+    border-bottom: thin solid black;
+    padding: 10px 0;
+    z-index: 999;
+}
+
+.work-nav-title {
+    width: 35%;
+    margin-left: 5%;
+    float:left;
+    padding: 4px 0;
+}
+
+.work-nav-title h2 {
+    margin-bottom: 2px;
+}
+
+.work-nav-content {
+    float: right;
+    margin-right: 5%;
+}
+
+.work-nav a {
+    position: relative;
+    display: inline-block;
+    outline: none;
+    color: #000;
+    text-decoration: none;
+    text-transform: lowercase;
+    text-shadow: 0 0 1px rgba(255,255,255,0.3);
+}
+
+.work-nav ul {
+    float: left;
+    margin-right: 45px;
+    line-height: 30px;
+}
+
+/* ===== Work ===== */
+
+#work {
+    padding-bottom: 50px;
+}
+
+#work ul {
+    margin:0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+#work li  {
+    display: inline-block;
+    height:300px;
+    width: 100%;
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+    background-size: cover;
+}
+
+#work li a,a:hover {
+    color:black;
+}
+
+#work li:hover .projectimage {
+    background-color: rgba(0, 0, 0, .5);
+}
+
+#work li:hover .projectinfo {
+    bottom: 50%;
+}
+
+
+
+.ink  {
+    background: url(../images/beachbgbw.jpg) no-repeat;
+    background-position: center;
+}
+
+.chromecast {
+    background: url(../images/beachbgbw.jpg) no-repeat;
+}
+
+.facebook {
+    background: url(../images/beachbgbw.jpg) no-repeat;
+}
+
+.pipeline {
+    background: url(../images/beachbgbw.jpg) no-repeat;
+}
+
+.thread {
+    background: url(../images/beachbgbw.jpg) no-repeat;
+}
+
+.todo {
+    background: url(../images/beachbgbw.jpg) no-repeat;
+}
+
+.appcomm {
+    background: url(../images/beachbgbw.jpg) no-repeat;
+}
+
+.project8 {
+    background: url(../images/beachbgbw.jpg) no-repeat;
+}
+
+.projectinfo {
+    display: table-row;
+    width: 100%;
+    margin: 0 auto;
+    position: absolute;
+    bottom: 0;
+    padding: 10px 0;
+    background-color:rgba(255, 255, 255, .9);
+    line-height: 1.5em;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}
+
+.projectimage {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}
+
+/* ===== Work  Full ===== */
+
+.work-full {
+    display: none;
+    width: 100%;
+    z-index: 99;
+}
+
+.work-wrapper {
+    margin: 0 auto;
+    padding: 20px 10%;
+    max-width: 1400px;
+}
+
+/* ===== About ===== */
+
+#about {
+    margin:0 auto;
+    background: url(../images/binarybridge.jpg) no-repeat scroll;
+    /*	background-size: cover;*/
+}
+
+#aboutMe {
+    margin: 0 auto;
+    text-align: justify;
+    padding-bottom: 80px;
+}
+
+.aboutCurtain {
+    position: relative;
+    width: 100%;
+    background:rgba(255, 255, 255, .8);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.46);
+}
+
+#aboutBox {
+    margin: 0 auto;
+    width: 80%;
+    text-align: center;
+}
+
+/* ===== Contact ====== */
+
+#contact {
+    margin-bottom: 80px;
+}
+
+#contactBox {
+    margin:0 auto;
+    width: 30%;
+    min-width: 350px;
+    display: table;
+}
+
+#contactBox li {
+    width: 33.33%;
+    margin: 0 auto;
+    text-align: center;
+    display: table-cell;
+}
+
+#contactBox h4 {
+    margin-top: 5px;
+}
+
+#contactBox a {
+    position: relative;
+    display: inline-block;
+    outline: none;
+    padding: 5px 0;
+}
+
+.socialButton{
+    width :20px;
+    height : 20px;
+}
+
+#twitterPath{
+    fill:#4D4D4D;
+    -webkit-transition: fill 0.3s ease;
+    -moz-transition: fill 0.3s ease;
+    -o-transition: fill 0.3s ease;
+    -ms-transition: fill 0.3s ease;
+    transition: fill 0.3s ease;
+}
+
+#linkedinPath{
+    fill:#4D4D4D;
+    -webkit-transition: fill 0.3s ease;
+    -moz-transition: fill 0.3s ease;
+    -o-transition: fill 0.3s ease;
+    -ms-transition: fill 0.3s ease;
+    transition: fill 0.3s ease;
+}
+
+#mailPath{
+    fill:#4D4D4D;
+    -webkit-transition: fill 0.3s ease;
+    -moz-transition: fill 0.3s ease;
+    -o-transition: fill 0.3s ease;
+    -ms-transition: fill 0.3s ease;
+    transition: fill 0.3s ease;
+}
+
+/* ===== Footer ====== */
+
+footer {
+    padding: 20px;
+    background-color: black;
+    color: white;
+    text-align: right;
+}
+
+#footer-content {
+    padding-right: 2%;
+}
+
+/* Portrait e-readers and small tablets */
+@media screen and (min-width: 481px) {
+    #work li {
+        float:left;
+        margin-bottom: 20px;
+    }
+
+    .aboutCurtain {
+        left:5%;
+        width: 90%;
+    }
+
+    #aboutBox {
+        left: 10%;
+        width: 80%;
+    }
+
+}
+
+/* Portrait tablets, landscape e-readers */
+@media screen and (min-width: 641px) {
+    #home {
+        background-attachment: fixed;
+    }
+
+    #about {
+        background-attachment: fixed;
+    }
+
+    #hamburger {
+        display: none;
+    }
+
+    nav {
+        width: auto;
+        margin-right: 25%;
+    }
+
+    nav ul {
+        display: block;
+        float: right;
+    }
+
+    nav li {
+        float: left;
+        margin-right: 20px;
+        line-height: 30px;
+    }
+}
+
+/* Landscape tablets, small browsers */
+@media screen and (min-width: 961px) {
+    #softwaredev {
+        width:50%;
+    }
+
+    #uidesigner {
+        width:50%;
+    }
+}
+
+/* Desktops, large tablets */
+@media screen and (min-width: 1025px) {
+    #work ul {
+        width: 70%;
+    }
+
+    #work li {
+        width: 46%;
+        margin: 0 2%;
+    }
+
+    .aboutCurtain {
+        left:25%;
+        width: 50%;
+    }
+
+    #aboutBox {
+        left: 30%;
+        width: 40%;
+    }
+}
+
+/* Hi-res laptops and desktops */
+@media screen and (min-width:1281px) {
+
+}
