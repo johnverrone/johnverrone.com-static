@@ -10,7 +10,8 @@
     width: 100%;
     height: 100%;
     z-index: 1000;
-    background: #FFFFFF;
+    background: url('../images/spelling.gif') no-repeat center center fixed;
+    background-size: contain;
 }
 
 #loader {
@@ -210,7 +211,7 @@ header {
 }
 
 header .logo {
-    margin-left: 25%;
+    margin-left: 10%;
     float:left;
 }
 
@@ -266,7 +267,7 @@ nav .menu {
     width: 20px;
     height: 10px;
     position: fixed;
-    right: 25%;
+    right: 10%;
     margin: 10px auto;
     -webkit-transform: rotate(0deg);
     -moz-transform: rotate(0deg);
@@ -670,7 +671,7 @@ footer {
 }
 
 /* Portrait tablets, landscape e-readers */
-@media screen and (min-width: 641px) {
+@media screen and (min-width: 590px) {
     #home {
         background-attachment: fixed;
     }
@@ -685,7 +686,7 @@ footer {
 
     nav {
         width: auto;
-        margin-right: 25%;
+        margin-right: 10%;
     }
 
     nav ul {
